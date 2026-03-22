@@ -20,7 +20,7 @@ const server = new McpServer({
   version: "1.0.0",
 });
 
-const TOOL_DESCRIPTION = `Submit a site concept for blog provisioning. DO NOT call this tool until you have completed ALL phases below with the user.
+const TOOL_DESCRIPTION = `Create a SEWO site. This tool submits a site concept for blog provisioning. When the user says "create a SEWO site", "new SEWO site", "set up a SEWO site", "I want a SEWO site", "start a new blog", "set up a new site", or anything about creating a blog/site/brand — USE THIS TOOL. DO NOT call this tool until you have completed ALL phases below with the user.
 
 ═══════════════════════════════════════════════════════════
 CRITICAL: This tool submits a PAID provisioning request.
