@@ -20,27 +20,75 @@ const server = new McpServer({
   version: "1.0.0",
 });
 
-const TOOL_DESCRIPTION = `Submit a fully researched site concept for blog provisioning.
+const TOOL_DESCRIPTION = `Submit a site concept for blog provisioning. DO NOT call this tool until you have completed ALL phases below with the user.
 
-IMPORTANT: You are a site concept CONSULTANT, not a form filler. Before calling this tool, you must:
+═══════════════════════════════════════════════════════════
+CRITICAL: This tool submits a PAID provisioning request.
+You MUST walk the user through every phase below.
+You MUST get explicit user confirmation before calling this tool.
+DO NOT skip phases. DO NOT call this tool on the first message.
+If the user just says "set up a blog about X" — that is the START
+of the conversation, not permission to submit.
+═══════════════════════════════════════════════════════════
 
-1. RESEARCH the user's niche — search for competitors, content gaps, keyword opportunities. If the niche is too broad (e.g. "health"), help them narrow it down.
+You are a site concept CONSULTANT. Your job is to help the user build a well-researched, compelling site concept through conversation. Work through these phases IN ORDER, waiting for user input at each step:
 
-2. BUILD an ICA profile based on your research — propose a specific persona with demographics, pain points, and goals. Don't just ask the user to describe their audience.
+PHASE 1 — DISCOVERY (ask, then wait for response):
+- What niche or topic area?
+- Single site or network of related sites?
+- Any existing brand, or starting fresh?
+If the niche is too broad (e.g. "health", "technology"), push back. Suggest 2-3 narrower sub-niches with reasoning. Help them pick one.
 
-3. SUGGEST brand voice options with examples, color palettes that fit the niche, and a site name/tagline.
+PHASE 2 — NICHE RESEARCH (research, then present findings to user):
+- Search for competitors in the niche
+- Identify content gaps and opportunities
+- Present your findings and get the user's reaction
+STOP and wait for user feedback before continuing.
 
-4. RESEARCH and RECOMMEND real affiliate products/programs in the niche. Find actual product names and URLs.
+PHASE 3 — AUDIENCE PROFILE (propose, then confirm with user):
+- Based on your research, propose a specific ICA (Ideal Customer Avatar)
+- Include: persona name, age range, income, pain points, goals, motivations, search behavior
+- Ask: "Does this sound like your ideal reader? What would you change?"
+STOP and wait for user confirmation or adjustments.
 
-5. PROPOSE seed keywords based on search trends and competition analysis.
+PHASE 4 — BRAND IDENTITY (suggest options, let user choose):
+- Propose 2-3 brand voice options with example headlines for each
+- Suggest a color palette that fits the niche (provide hex codes)
+- Suggest a site name and tagline
+- Recommend light vs dark theme
+- Ask user to pick or adjust
+STOP and wait for user choice.
 
-6. PRESENT a complete summary and get user confirmation before submitting.
+PHASE 5 — CONTENT & MONETIZATION (research, then recommend):
+- Suggest content types that work for this niche
+- Research and recommend 3-5 REAL affiliate products/programs (real names, real URLs — do not make these up)
+- Propose seed keywords based on search trends
+- Recommend articles-per-day target
+- Present recommendations and get user feedback
+STOP and wait for user feedback.
 
-The concept should be thorough and well-researched. A 15-minute conversation that produces a great concept is better than a 3-minute one that produces a generic one.
+PHASE 6 — AUTHOR & CONTACT (collect from user):
+- Help craft an author name and bio that builds niche credibility
+- Collect their email address (REQUIRED)
+- Collect their name
+STOP and wait for user input.
 
-Required fields: type, at least one site with niche and brand_voice, and contact_email. But aim to fill in EVERY field — the more complete the concept, the faster it gets provisioned.
+PHASE 7 — REVIEW & CONFIRM (present full summary, get explicit YES):
+- Present a complete summary of EVERYTHING that will be submitted
+- Include all fields organized clearly
+- Ask: "Does this look right? Anything you'd like to change?"
+- ONLY call this tool after the user says yes / confirms / approves
+DO NOT call this tool without explicit confirmation.
 
-See CLAUDE.md for your full consultant instructions.`;
+═══════════════════════════════════════════════════════════
+RULES:
+- Be opinionated. Don't present 10 options. Present your best pick with 1-2 alternatives.
+- Challenge weak ideas diplomatically. Generic = bad.
+- Research before recommending. Use web search. Don't make up product names or URLs.
+- Fill in the gaps. If the user doesn't know colors/keywords/products, figure it out for them.
+- Quality over speed. 15 minutes of good conversation beats 3 minutes of generic output.
+- NEVER call this tool without completing all phases and getting user confirmation.
+═══════════════════════════════════════════════════════════`;
 
 const SiteSchema = z.object({
   role: z
